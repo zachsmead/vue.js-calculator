@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+</head>
+
+<body>
+
+	<div id="app">
+		<button v-for="number in numbers" v-on:click="enterSymbol(number)">{{ number }}</button><br />
+		<button v-for="operator in operators" v-on:click="enterSymbol(operator)">{{ operator }}</button>
+		<button v-on:click="evaluate()">=</button><br />
+		{{ answer }}
+	</div>
+
+
+	<script src="vue.js"></script> <!-- This tag includes Vue.js in the HTML file. -->
+	<script src="calculator.js"></script>
+	
+
+</body>
+</html>
+
