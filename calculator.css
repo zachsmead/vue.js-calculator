@@ -1,19 +1,31 @@
-body {
-}
 
 .header-box {
 	text-align: center;
 }
 
 #expression {
-  /*background-color: #ECECEC;*/
+  background-color: #e5e3e3;
 
   text-align: right;
   font-weight: bold;
 
-  width: 106px;
-  padding: 15px;
+  width: 100px;
+  /*padding: 15px;
+  margin: 5px;*/
+} 
+
+
+
+input {
+  width: 40px;
+  height: 40px;
   margin: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#block {
+  float: auto;
 }
 
 .alignment {
@@ -23,12 +35,13 @@ body {
 .calculator {
 	margin: auto;
 	text-align: center;
-	background-color: #ECECEC;
+	background-color: #489fba;
 	width: 190px;
 	height: 360px;
 }
 
 button {
+  background-color: #f4f4f4;
   width: 50px;
   height: 50px;
   margin: 5px;

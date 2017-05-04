@@ -2,16 +2,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var app = new Vue({
 		el: '#app',
 		data: {
-			buttons: ["C", 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, "+", "-", "x", "/", "="],
-			operators: ["+", "-", "*", "/"],
+			buttons: ["C", 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, "+", "-", "X", "/", "="],
+			operators: ["+", "-", "/"],
 			expression: '0',
-			answer: 0
+			answered: false
 		},
 		methods: {
 			enterSymbol: function(symbol) {
 				// if the current input symbol is a number 
 				if (Number.isInteger(symbol)) {
-					if (this.expression == '0') {
+					if (this.expression == '0' || this.answered == true) {
+						console.log("Answer triggered")
 						this.expression = String(symbol);
 					} else {
 						this.expression += String(symbol);
@@ -23,15 +24,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 						&& this.expression.length > 0) // and you aren't starting the expression with an operator
 				{
 					this.expression += symbol;
+				} else if (symbol == "X") {
+					this.expression += "*";
 				} else if (symbol == "=") {
 					return this.evaluate();
 				} else if (symbol == "C") {
 					this.expression = '0';
-				}
+				};
 			},
 
 			evaluate: function() {
 				this.expression = eval(this.expression);
+				this.answered = !this.answered;
+				console.log(this.answered);
 			}
 		}
 	});

@@ -15,10 +15,13 @@
 	<div id="app">
 		<div class="alignment">
 			<div class="calculator">
-				<button id="expression" v-model="expression">
-					{{ expression }}
-				</button>
-				<button v-for="button in buttons" class="" v-on:click="enterSymbol(button)">{{ button }}</button>
+				<!-- <div id="block"> -->
+					<input id="expression" v-model="expression"></input>
+				<!-- </div> -->
+
+
+				<button v-for="button in buttons" id="block" v-on:click="enterSymbol(button)">{{ button }}</button>
+
 			</div>
 		</div>
 	</div>
