@@ -24,10 +24,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 				// else, check if the current input symbol is an operator, 
 				// and the last input was not an operator
-				// // and you aren't starting the expression with an operator
 				} else if (this.operators.includes(symbol) 
 						&& !(this.operators.includes(this.expression[this.expression.length - 1])))
-						// && this.expression.length > 0) 
 				{	
 					if (symbol == "X") {
 						this.expression += "*";
