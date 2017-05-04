@@ -9,26 +9,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		},
 		methods: {
 			enterSymbol: function(symbol) {
-				// if the current input symbol is a number 
+				// check if the current input symbol is a number 
+				// and the last input wasn't an operator
 				if (Number.isInteger(symbol)) {
-					if (this.expression == '0' || this.answered == true) {
-						console.log("Answer triggered")
+					if ((this.expression == '0' || this.answered == true)
+								&& !(this.operators.includes(this.expression[this.expression.length - 1]))) 
+					{
+						console.log("Answer triggered");
 						this.answered = false;
 						this.expression = String(symbol);
 					} else {
 						this.expression += String(symbol);
 					};
 
-				// if the current input symbol is an operator and the last input was not an operator
+				// else, check if the current input symbol is an operator, 
+				// and the last input was not an operator
+				// // and you aren't starting the expression with an operator
 				} else if (this.operators.includes(symbol) 
-						&& !(this.operators.includes(this.expression[this.expression.length - 1]))
-						&& this.expression.length > 0) // and you aren't starting the expression with an operator
+						&& !(this.operators.includes(this.expression[this.expression.length - 1])))
+						// && this.expression.length > 0) 
 				{	
 					if (symbol == "X") {
 						this.expression += "*";
 					} else {
 						this.expression += symbol;
-					};
+					}
 				} else if (symbol == "=") {
 					return this.evaluate();
 				} else if (symbol == "C") {
