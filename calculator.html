@@ -3,15 +3,24 @@
 
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="calculator.css">
 </head>
 
 <body>
 
+	<div class="header-box">
+		<h1>Vue.js Calculator</h1>
+	</div>
+
 	<div id="app">
-		<button v-for="number in numbers" v-on:click="enterSymbol(number)">{{ number }}</button><br />
-		<button v-for="operator in operators" v-on:click="enterSymbol(operator)">{{ operator }}</button>
-		<button v-on:click="evaluate()">=</button><br />
-		{{ answer }}
+		<div class="alignment">
+			<div class="calculator">
+				<button id="expression" v-model="expression">
+					{{ expression }}
+				</button>
+				<button v-for="button in buttons" class="" v-on:click="enterSymbol(button)">{{ button }}</button>
+			</div>
+		</div>
 	</div>
 
 
