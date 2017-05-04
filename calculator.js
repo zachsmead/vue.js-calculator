@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				if (Number.isInteger(symbol)) {
 					if (this.expression == '0' || this.answered == true) {
 						console.log("Answer triggered")
+						this.answered = false;
 						this.expression = String(symbol);
 					} else {
 						this.expression += String(symbol);
@@ -30,12 +31,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 					return this.evaluate();
 				} else if (symbol == "C") {
 					this.expression = '0';
+					this.answered = false;
 				};
 			},
 
 			evaluate: function() {
 				this.expression = eval(this.expression);
-				this.answered = !this.answered;
+				this.answered = true;
 				console.log(this.answered);
 			}
 		}
