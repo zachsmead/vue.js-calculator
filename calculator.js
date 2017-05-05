@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 						this.answered = false;
 						this.expression = String(symbol);
 					} else {
+						this.answered = false;
 						this.expression += String(symbol);
 					};
 
